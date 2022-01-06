@@ -14,21 +14,21 @@ class Solution {
         
       
         for(int i = 1; i <= m; i++){
-          int diag = 0;
+          int prev = 0;
             
             for(int j = 1; j<=n; j++){
            
-              int nextDiag = dp[j];
+              int tmp = dp[j];
                 
                if(  text1.charAt(i-1) == text2.charAt(j-1)){
                    
-                   dp[j] = 1 + diag;
+                   dp[j] = 1 + prev;
                    
                } else {
                    dp[j] = Math.max(dp[j], dp[j-1]);
                }
                
-                 diag = nextDiag;
+                 prev = tmp;
                 
             }
         }
